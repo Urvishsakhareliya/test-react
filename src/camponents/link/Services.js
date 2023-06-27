@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { context } from "../../Context";
 import Image from "./Image";
+import Rate_Star from "./Rate_Star";
+import Color from "./Color";
 
 export default function Service() {
   const Api = "https://api.pujakaitem.com/api/products";
@@ -48,9 +50,13 @@ export default function Service() {
 
               <div className="col-6">
                 <h4>{name}</h4>
+                <Rate_Star abc={(stars, reviews)} />
                 <p>
                   <b>Company:</b> {company}
                 </p>
+
+                <p className="mt-2">{description}</p>
+                <Color color={color} />
               </div>
             </div>
           </section>
