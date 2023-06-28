@@ -179,6 +179,32 @@ img {
     padding: 2px;
 }
 
+.star .fillStar,
+.star .borderStar {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.star .fillStar .group,
+.star .borderStar .group {
+    width: 100px;
+    color: #ffbb00;
+    white-space: nowrap;
+}
+
+.star .fillStar .group svg,
+.star .borderStar .group svg {
+    width: 20px;
+    height: 20px;
+}
+
+.star .fillStar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+}
+
 /* 
     https://uttamsakhareliya.github.io/NodeWave-Dashboard/pages/
     https://uttamsakhareliya.github.io/NodeWaves-Website/pages/
@@ -186,5 +212,5 @@ img {
     https://uttamsakhareliya.github.io/TDP-Dashboard/pages/Dashboard.html
     https://uttamsakhareliya.github.io/FoodOne/pages/
     https://urvishsakhareliya.github.io/vakula-react/
-     git add .,git commit -m '',git push -u origin master
+     git add .,git commit -m '',git push -f origin master
  */
