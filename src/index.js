@@ -16,20 +16,25 @@ import { AppContext } from "./Context";
 // import Form from "./camponents/Form";
 import "./style.css";
 import Cart from "./camponents/link/Cart";
+import Product from "./camponents/link/Product";
+import { FilterContextProvider } from "./camponents/link/context/Filter_Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AppContext>
-      <Navbar title="textUtils" />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/About" element={<About />}></Route>
-        <Route path="/Services/:id" element={<Services />}></Route>
-        <Route path="/Gallery" element={<Gallery />}></Route>
-        <Route path="/Carrier" element={<Carrier />}></Route>
-        <Route path="/Cart" element={<Cart />}></Route>
-      </Routes>
+      <FilterContextProvider>
+        <Navbar title="textUtils" />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/About" element={<About />}></Route>
+          <Route path="/Services/:id" element={<Services />}></Route>
+          <Route path="/Gallery" element={<Gallery />}></Route>
+          <Route path="/Carrier" element={<Carrier />}></Route>
+          <Route path="/Cart" element={<Cart />}></Route>
+          <Route path="/Product" element={<Product />}></Route>
+        </Routes>
+      </FilterContextProvider>
     </AppContext>
   </BrowserRouter>
 );
