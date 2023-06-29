@@ -15,6 +15,7 @@ import Carrier from "./camponents/link/Carrier";
 import { AppContext } from "./Context";
 // import Form from "./camponents/Form";
 import "./style.css";
+import Cart from "./camponents/link/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,6 +28,7 @@ root.render(
         <Route path="/Services/:id" element={<Services />}></Route>
         <Route path="/Gallery" element={<Gallery />}></Route>
         <Route path="/Carrier" element={<Carrier />}></Route>
+        <Route path="/Cart" element={<Cart />}></Route>
       </Routes>
     </AppContext>
   </BrowserRouter>

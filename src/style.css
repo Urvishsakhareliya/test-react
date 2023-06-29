@@ -157,27 +157,26 @@ img {
     overflow: hidden;
 }
 
-.color_ul .li_item {
+.color_ul .radioDiv {
     height: 30px;
     width: 30px;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 2px solid transparent;
+    padding: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    border: 1px solid transparent;
+    margin: 0 5px;
 }
 
-.color_ul .li_item span {
-    height: 100%;
-    width: 100%;
-    display: block;
-    border-radius: 50%;
+.color_ul .radioDiv:hover,
+.color_ul .radioDiv.active {
+    opacity: 1;
+    border: 1px solid #070069;
 }
 
 
-
-.color_ul .radioDiv input[type="radio"]:checked~.li_item {
-    border: 2px solid #000;
-    padding: 2px;
-}
 
 .star .fillStar,
 .star .borderStar {
@@ -203,6 +202,44 @@ img {
     top: 0;
     left: 0;
     width: 50%;
+}
+
+.deal_price {
+    color: #0300bb;
+}
+
+.amount-toggle {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.amount-toggle button {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.amount-toggle .amount-style {
+    color: #070069;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddToCart {
+    padding: 10px 30px;
+    background-color: #0300bb;
+    color: white;
+    border: 1px solid #0300bb;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.AddToCart:hover {
+    color: #0300bb;
+    background-color: white;
 }
 
 /* 

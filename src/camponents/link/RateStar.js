@@ -5,7 +5,7 @@ export default function RateStar({ star, reviews }) {
   const RatingStar = Array.from({ length: 5 }, (ele, index) => {
     let number = index + 0.5;
     return (
-      <span key={index}>
+      <span className="star_span me-1 fs-5" key={index}>
         {star >= index + 1 ? (
           <BsStarFill />
         ) : star >= number ? (
@@ -44,7 +44,7 @@ export default function RateStar({ star, reviews }) {
         </div> */}
 
         {RatingStar}
-        <p>({reviews} Customer Reviews)</p>
+        <p className="d-inline-block ms-3">({reviews} Customer Reviews)</p>
       </div>
     </>
   );

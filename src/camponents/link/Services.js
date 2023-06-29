@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { context } from "../../Context";
 import Image from "./Image";
 import RateStar from "./RateStar";
-import Color from "./Color";
+import AddToCart from "./AddToCart";
 
 export default function Service() {
   const Api = "https://api.pujakaitem.com/api/products";
@@ -59,13 +59,26 @@ export default function Service() {
               <div className="col-6">
                 <h4>{name}</h4>
                 <RateStar star={stars} reviews={reviews} />
-                <p>
+
+                <p className="my-3">
+                  MRP: <del>{FormatePrice(price + 250000)}</del>
+                </p>
+
+                <h6 className="deal_price">
+                  Deal Of the Day: {FormatePrice(price)}
+                </h6>
+
+                <p className="mt-2">
                   <b>Company:</b> {company}
                 </p>
 
                 <p className="mt-2">{description}</p>
-                <Color color={colors} />
-                <h3>{FormatePrice(price + 250000)}</h3>
+                <hr />
+                <p className="mt-2">
+                  Stocks : {stock >= 1 ? stock : "Out of Stock"}
+                </p>
+
+                <AddToCart product={SET_Single_Products} />
               </div>
             </div>
           </section>
