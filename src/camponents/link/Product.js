@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import FilterSection from "./FilterSection";
 import Sort from "./Sort";
 import ProductList from "./ProductList";
+import { FilterContext } from "./context/Filter_Context";
 
-export default function product() {
+export default function Product() {
+  const { filter_Product } = useContext(FilterContext);
+
   return (
     <>
       <section className="container-xl mt-5 p-0">
@@ -17,7 +20,7 @@ export default function product() {
               <Sort />
             </div>
             <div className="products_list mt-s">
-              <ProductList />
+              <ProductList product={filter_Product} />
             </div>
           </div>
         </div>

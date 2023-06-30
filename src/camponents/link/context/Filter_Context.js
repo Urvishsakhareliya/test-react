@@ -1,23 +1,36 @@
 import { useEffect, useReducer, createContext } from "react";
 import reducer from "./FilterReducer";
 import { useContext } from "react";
-import contaxt from "../../../Context";
+import { context } from "../../../Context";
 
-const FilterContext = createContext();
+export const FilterContext = createContext();
 
 const initialState = {
-  Load_Filter_Product: [],
-  All_product: [],
+  filter_Product: [],
+  all_product: [],
+  Sorting_value: "lowest",
 };
 
 export const FilterContextProvider = ({ children }) => {
-  const { product } = useContext(contaxt);
+  const { products } = useContext(context);
 
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
-    // dispatch({ type: "Load_Filter_Product" payload:products });
-  });
+    dispatch({ type: "Sorting_Product", payload: products });
+  }, [state.Sorting_value]);
+
+  useEffect(() => {
+    dispatch({ type: "Load_Filter_Product", payload: products });
+  }, [products]);
+
+  // sorting Function
+  const sorting = (e) => {
+    dispatch({ type: "Get_sort_Value" });
+  };
+
   return (
-    <FilterContext.Provider value="abc">{children}</FilterContext.Provider>
+    <FilterContext.Provider value={{ ...state, sorting }}>
+      {children}
+    </FilterContext.Provider>
   );
 };
