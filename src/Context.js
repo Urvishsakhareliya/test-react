@@ -11,6 +11,7 @@ const initialState = {
   SET_Single_LOADING: false,
   SET_Single_Products: {},
 };
+
 const Api = "https://api.pujakaitem.com/api/products";
 const AppContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -25,6 +26,7 @@ const AppContext = ({ children }) => {
       dispatch({ type: "API_ERROR" });
     }
   };
+
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_Single_LOADING" });
     try {
@@ -47,4 +49,5 @@ const AppContext = ({ children }) => {
     </>
   );
 };
+
 export { AppContext, context };

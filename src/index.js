@@ -17,7 +17,7 @@ import { AppContext } from "./Context";
 import "./style.css";
 import Cart from "./camponents/link/Cart";
 import Product from "./camponents/link/Product";
-import { FilterContextProvider } from "./camponents/link/context/Filter_Context";
+import { FilterContextProvider } from "./camponents/link/context/FilterContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

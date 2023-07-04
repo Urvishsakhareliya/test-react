@@ -18,7 +18,6 @@ const ProductReducer = (state, action) => {
     case "API_ERROR":
       return {
         ...state,
-
         isLoading: false,
         isError: true,
       };

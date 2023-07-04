@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FilterContext } from "./context/Filter_Context";
+import { FilterContext } from "./context/FilterContext";
 
 export default function Sort() {
   const { filter_Product, sorting } = useContext(FilterContext);
@@ -7,7 +7,7 @@ export default function Sort() {
   return (
     <>
       <div className="row align-items-center">
-        <div className="col-6">
+        <div className="col-9">
           <h6>{filter_Product.length} products</h6>
         </div>
 

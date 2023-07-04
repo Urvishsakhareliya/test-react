@@ -248,6 +248,24 @@ img {
 
 .categories-ul {
     margin-top: 20px;
+    display: grid;
+}
+
+.categories-ul .categories_Item {
+    padding: 5px 0;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #fff;
+    border: 0;
+    text-align: left;
+}
+
+.categories-ul .categories_Item:hover {
+    color: #006eff;
+}
+
+.categories-ul .categories_Item.active {
+    color: #006eff;
 }
 
 .product_list {

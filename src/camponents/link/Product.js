@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import FilterSection from "./FilterSection";
 import Sort from "./Sort";
 import ProductList from "./ProductList";
-import { FilterContext } from "./context/Filter_Context";
+import { FilterContext } from "./context/FilterContext";
 
 export default function Product() {
   const { filter_Product } = useContext(FilterContext);
