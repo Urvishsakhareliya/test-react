@@ -20,7 +20,8 @@ export default function FilterSection() {
 
   const categoriesData = getUniqueData(all_product, "category");
   const companyData = getUniqueData(all_product, "company");
-  console.log();
+  const colorData = getUniqueData(all_product, "colors");
+  console.log(colorData);
 
   return (
     <>

@@ -13,6 +13,7 @@ const initialState = {
     SearchValue: "",
     categories: "All",
     companyName: "All",
+    colorName: "All",
   },
 };
 
@@ -23,7 +24,8 @@ export const FilterContextProvider = ({ children }) => {
 
   // sorting Function
   const sorting = (e) => {
-    dispatch({ type: "Get_sort_Value" });
+    let userValue = e.target.value;
+    dispatch({ type: "Get_sort_Value", payload: userValue });
   };
 
   // updateValueFilter Search

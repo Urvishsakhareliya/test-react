@@ -11,15 +11,17 @@ export default function Sort() {
           <h6>{filter_Product.length} products</h6>
         </div>
 
-        <div className="col-3">
+        <form action="#" className="col-3">
           <select className="form-select" id="sort_select" onChange={sorting}>
             <option value="lowest">price(lowest)</option>
             <option value="highest">price(highest)</option>
             <option value="a-z">price(a-z)</option>
             <option value="z-a">price(z-a)</option>
           </select>
-        </div>
+        </form>
       </div>
     </>
   );
 }
+// 359926263519
+// 7777955506

@@ -7,18 +7,16 @@ const FilterReducer = (state, action) => {
         all_product: [...action.payload],
       };
     case "Get_sort_Value":
-      let userSortValue = document.getElementById("sort_select");
-      let sortValue = userSortValue.options[userSortValue.selectedIndex].value;
-      console.log(sortValue);
+      // let userSortValue = document.getElementById("sort_select");
+      // let sortValue = userSortValue.options[userSortValue.selectedIndex].value;
       return {
         ...state,
-        Sorting_value: sortValue,
+        Sorting_value: action.payload,
       };
     case "Sorting_Product":
       let NewSortData;
       const { filter_Product, Sorting_value } = state;
       let tempSortData = [...filter_Product];
-
       const SortingProducts = (a, b) => {
         // 1 Example with if Condition
         // if (Sorting_value === "lowest") {
@@ -35,6 +33,7 @@ const FilterReducer = (state, action) => {
         // }
 
         // 2 example with switch case
+
         switch (Sorting_value) {
           case "lowest":
             return a.price - b.price;
@@ -59,7 +58,6 @@ const FilterReducer = (state, action) => {
 
     case "Get_search_Value":
       const { name, value } = action.payload;
-      // console.log(value);
       return {
         ...state,
         filter: {
