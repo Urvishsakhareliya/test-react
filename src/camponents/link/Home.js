@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { context } from "../../Context";
 import { NavLink } from "react-router-dom";
 
 export default function Home() {
   const { isLoading, products } = useContext(context);
-  console.log(products);
+  // console.log(products);
 
   const FormatePrice = (price) => {
     return new Intl.NumberFormat("en-IN", {
@@ -13,6 +13,27 @@ export default function Home() {
       maximumSignificantDigits: 2,
     }).format(price / 100);
   };
+  const [formvalues, setFormValues] = useState({
+    PropertyType_two: "OpenPlot",
+    PropertyType_three: "Agri_land",
+    City_Name: [
+      { A: "a", id: 1 },
+      { B: "b", id: 2 },
+    ],
+    ProjectBuilding_Name: "",
+  });
+
+  useEffect(() => {
+    setFormValues({
+      ...formvalues,
+      City_Name: [
+        ...formvalues.City_Name,
+        { ...formvalues.City_Name[0], A: "c" },
+      ],
+    });
+  }, []);
+
+  console.log(formvalues);
 
   return (
     <>

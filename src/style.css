@@ -278,6 +278,34 @@ img {
     height: 250px;
 }
 
+.colors-ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.colors-ul .categories_Item {
+    width: 50px;
+    border-radius: 5px;
+    height: 30px;
+    opacity: 0.5;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+}
+
+.colors-ul .categories_Item:hover {
+    opacity: 1;
+}
+
+.colors-ul .categories_Item.active {
+    border: 1px solid #000;
+    opacity: 1;
+}
+
 /* 
     https://uttamsakhareliya.github.io/NodeWave-Dashboard/pages/
     https://uttamsakhareliya.github.io/NodeWaves-Website/pages/

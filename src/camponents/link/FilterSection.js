@@ -1,19 +1,33 @@
 import React, { useContext } from "react";
 import { FilterContext } from "./context/FilterContext";
 import Sort from "./Sort";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function FilterSection() {
   const {
-    filter: { SearchValue, categories, companyName },
+    filter: { SearchValue, categories, companyName, colorName },
     updateValueFilter,
     all_product,
+    maxPrice,
+    price,
+    minPrice,
   } = useContext(FilterContext);
   // console.log(all_product);
-
+  const FormatePrice = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumSignificantDigits: 2,
+    }).format(price / 100);
+  };
   const getUniqueData = (data, Property) => {
     let newVal = data.map((curEle) => {
       return curEle[Property];
     });
+
+    if (Property === "colors") {
+      newVal = newVal.flat();
+    }
 
     return (newVal = ["All", ...new Set(newVal)]);
   };
@@ -21,8 +35,8 @@ export default function FilterSection() {
   const categoriesData = getUniqueData(all_product, "category");
   const companyData = getUniqueData(all_product, "company");
   const colorData = getUniqueData(all_product, "colors");
-  console.log(colorData);
-
+  const priceData = getUniqueData(all_product, "price");
+  // console.log(priceData);
   return (
     <>
       <form
@@ -77,6 +91,34 @@ export default function FilterSection() {
               );
             })}
           </select>
+        </div>
+        <div className="category">
+          <h6>Colors</h6>
+
+          <ul className="colors-ul">
+            {colorData.map((item, i) => {
+              return (
+                <button
+                  className={`categories_Item ${
+                    colorName === item ? "active" : ""
+                  }`}
+                  type="button"
+                  name="colorName"
+                  key={i}
+                  onClick={updateValueFilter}
+                  value={item}
+                  style={{ backgroundColor: item }}
+                >
+                  {item === "All" ? "All" : ""}
+                </button>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="category">
+          <h6>Price</h6>
+
+          {/* <p>{FormatePrice(price)}</p> */}
         </div>
       </form>
     </>

@@ -14,6 +14,9 @@ const initialState = {
     categories: "All",
     companyName: "All",
     colorName: "All",
+    maxPrice: 0,
+    price: 0,
+    minPrice: 0,
   },
 };
 
@@ -32,7 +35,6 @@ export const FilterContextProvider = ({ children }) => {
   const updateValueFilter = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    // state.filter.SearchValue=
     dispatch({ type: "Get_search_Value", payload: { name, value } });
   };
 

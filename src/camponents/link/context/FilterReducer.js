@@ -1,6 +1,11 @@
 const FilterReducer = (state, action) => {
   switch (action.type) {
     case "Load_Filter_Product":
+      const priceArr = action.payload.map((curEle) => {
+        return curEle.price;
+      });
+      // console.log(Math.max.apply(priceArr));
+
       return {
         ...state,
         filter_Product: [...action.payload],
@@ -70,7 +75,7 @@ const FilterReducer = (state, action) => {
       let { all_product } = state;
       let tempFilterProduct = [...all_product];
 
-      const { SearchValue, categories, companyName } = state.filter;
+      const { SearchValue, categories, companyName, colorName } = state.filter;
       if (SearchValue) {
         tempFilterProduct = tempFilterProduct.filter((curEle) => {
           return curEle.name.toLowerCase().includes(SearchValue);
@@ -84,6 +89,12 @@ const FilterReducer = (state, action) => {
       if (companyName !== "All") {
         tempFilterProduct = tempFilterProduct.filter((curEle) => {
           return curEle.company === companyName;
+        });
+      }
+
+      if (colorName !== "All") {
+        tempFilterProduct = tempFilterProduct.filter((curEle) => {
+          return curEle.colors.includes(colorName);
         });
       }
 
