@@ -4,7 +4,7 @@ const FilterReducer = (state, action) => {
       const priceArr = action.payload.map((curEle) => {
         return curEle.price;
       });
-      // console.log(Math.max.apply(priceArr));
+      console.log(Math.max.apply("null", priceArr));
 
       return {
         ...state,

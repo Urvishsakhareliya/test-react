@@ -118,6 +118,18 @@ export default function FilterSection() {
         <div className="category">
           <h6>Price</h6>
 
+          <div>
+            <input
+              type="range"
+              name="cowbell"
+              min="0"
+              max="100"
+              value="90"
+              step="10"
+              onChange={updateValueFilter}
+            />
+          </div>
+
           {/* <p>{FormatePrice(price)}</p> */}
         </div>
       </form>
