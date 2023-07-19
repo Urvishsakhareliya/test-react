@@ -119,11 +119,12 @@ export default function FilterSection() {
           <h6>Price</h6>
 
           <div>
+            <label className="d-block">{FormatePrice(maxPrice)}</label>
             <input
               type="range"
               name="cowbell"
-              min="0"
-              max="100"
+              min={minPrice}
+              max={maxPrice}
               value="90"
               step="10"
               onChange={updateValueFilter}

@@ -4,12 +4,13 @@ const FilterReducer = (state, action) => {
       const priceArr = action.payload.map((curEle) => {
         return curEle.price;
       });
-      console.log(Math.max.apply("null", priceArr));
-
+      // console.log(Math.max.apply("null", priceArr));
+      const max
       return {
         ...state,
         filter_Product: [...action.payload],
         all_product: [...action.payload],
+        filter: { ...state.filter, maxPrice: [math.max(...priceArr)] },
       };
     case "Get_sort_Value":
       // let userSortValue = document.getElementById("sort_select");

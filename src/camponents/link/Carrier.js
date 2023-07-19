@@ -42,14 +42,13 @@ export default function Carrier() {
     if (e.target.value === "") {
       tempSortData = [...val];
     } else {
-      tempSortData = filter.filter((curele) => {
+      tempSortData = tempSortData.filter((curele) => {
         console.log(e.target.value);
         return curele.name.toLowerCase().includes(e.target.value);
       });
     }
-    console.log(tempSortData);
+    // console.log(tempSortData);
     setFilter(tempSortData);
-    // setFilter();
   };
   // const GetVal = (e, id) => {
   //   const val = e.target.value;
