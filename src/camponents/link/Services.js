@@ -23,7 +23,7 @@ export default function Service() {
     stars,
     stock,
   } = SET_Single_Products;
-  console.log(stars);
+  // console.log(stars);
   const FormatePrice = (price) => {
     return Intl.NumberFormat("en-IN", {
       style: "currency",

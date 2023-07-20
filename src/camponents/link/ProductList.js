@@ -23,10 +23,12 @@ export default function ProductList({ product }) {
               <h5 className="my-2">{FormatePrice(item.price)}</h5>
               {/* <p>{item.description}</p> */}
 
-              <NavLink className="theme-btn" to={`/Services/${item.id}`}>
+              {/* <NavLink className="theme-btn" to={`/Services/${item.id}`}>
                 Add To Cart
+              </NavLink> */}
+              <NavLink className="theme-btn" to={`/Services/${item.id}`}>
+                buy Now
               </NavLink>
-              <button>buy Now</button>
             </li>
           );
         })}

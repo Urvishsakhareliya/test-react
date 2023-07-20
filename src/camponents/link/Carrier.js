@@ -43,7 +43,7 @@ export default function Carrier() {
       tempSortData = [...val];
     } else {
       tempSortData = tempSortData.filter((curele) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         return curele.name.toLowerCase().includes(e.target.value);
       });
     }

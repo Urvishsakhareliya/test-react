@@ -18,22 +18,25 @@ import "./style.css";
 import Cart from "./camponents/link/Cart";
 import Product from "./camponents/link/Product";
 import { FilterContextProvider } from "./camponents/link/context/FilterContext";
+import { CartProvider } from "./camponents/link/context/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AppContext>
       <FilterContextProvider>
-        <Navbar title="textUtils" />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/About" element={<About />}></Route>
-          <Route path="/Services/:id" element={<Services />}></Route>
-          <Route path="/Gallery" element={<Gallery />}></Route>
-          <Route path="/Carrier" element={<Carrier />}></Route>
-          <Route path="/Cart" element={<Cart />}></Route>
-          <Route path="/Product" element={<Product />}></Route>
-        </Routes>
+        <CartProvider>
+          <Navbar title="textUtils" />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/About" element={<About />}></Route>
+            <Route path="/Services/:id" element={<Services />}></Route>
+            <Route path="/Gallery" element={<Gallery />}></Route>
+            <Route path="/Carrier" element={<Carrier />}></Route>
+            <Route path="/Cart" element={<Cart />}></Route>
+            <Route path="/Product" element={<Product />}></Route>
+          </Routes>
+        </CartProvider>
       </FilterContextProvider>
     </AppContext>
   </BrowserRouter>

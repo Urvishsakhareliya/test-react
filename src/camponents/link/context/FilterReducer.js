@@ -4,13 +4,12 @@ const FilterReducer = (state, action) => {
       const priceArr = action.payload.map((curEle) => {
         return curEle.price;
       });
-      // console.log(Math.max.apply("null", priceArr));
-      const max
+      let maxPrice = Math.max(...priceArr);
       return {
         ...state,
         filter_Product: [...action.payload],
         all_product: [...action.payload],
-        filter: { ...state.filter, maxPrice: [math.max(...priceArr)] },
+        filter: { ...state.filter, maxPrice, price: maxPrice },
       };
     case "Get_sort_Value":
       // let userSortValue = document.getElementById("sort_select");
@@ -76,7 +75,8 @@ const FilterReducer = (state, action) => {
       let { all_product } = state;
       let tempFilterProduct = [...all_product];
 
-      const { SearchValue, categories, companyName, colorName } = state.filter;
+      const { SearchValue, categories, companyName, colorName, price } =
+        state.filter;
       if (SearchValue) {
         tempFilterProduct = tempFilterProduct.filter((curEle) => {
           return curEle.name.toLowerCase().includes(SearchValue);
@@ -99,9 +99,30 @@ const FilterReducer = (state, action) => {
         });
       }
 
+      if (price) {
+        tempFilterProduct = tempFilterProduct.filter((curEle) => {
+          return curEle.price <= price;
+        });
+      }
+
       return {
         ...state,
         filter_Product: tempFilterProduct,
+      };
+
+    case "Clear_Filters":
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          SearchValue: "",
+          categories: "All",
+          companyName: "All",
+          colorName: "All",
+          maxPrice: state.filter.maxPrice,
+          price: state.filter.maxPrice,
+          minPrice: 0,
+        },
       };
 
     default:

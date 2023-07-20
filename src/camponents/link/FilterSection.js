@@ -5,14 +5,20 @@ import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function FilterSection() {
   const {
-    filter: { SearchValue, categories, companyName, colorName },
+    filter: {
+      SearchValue,
+      categories,
+      companyName,
+      colorName,
+      maxPrice,
+      price,
+      minPrice,
+    },
     updateValueFilter,
     all_product,
-    maxPrice,
-    price,
-    minPrice,
+    ClearFun,
   } = useContext(FilterContext);
-  // console.log(all_product);
+
   const FormatePrice = (price) => {
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
@@ -119,19 +125,24 @@ export default function FilterSection() {
           <h6>Price</h6>
 
           <div>
-            <label className="d-block">{FormatePrice(maxPrice)}</label>
+            <label className="d-block">{FormatePrice(price)}</label>
             <input
               type="range"
-              name="cowbell"
+              name="price"
               min={minPrice}
               max={maxPrice}
-              value="90"
+              value={price}
               step="10"
               onChange={updateValueFilter}
             />
           </div>
 
           {/* <p>{FormatePrice(price)}</p> */}
+        </div>
+        <div className="category">
+          <button className="btn btn-secondary" onClick={ClearFun}>
+            Clear filters
+          </button>
         </div>
       </form>
     </>

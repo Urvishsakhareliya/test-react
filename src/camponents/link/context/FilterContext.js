@@ -30,6 +30,11 @@ export const FilterContextProvider = ({ children }) => {
     let userValue = e.target.value;
     dispatch({ type: "Get_sort_Value", payload: userValue });
   };
+  // sorting Function
+  const ClearFun = (e) => {
+    e.preventDefault();
+    dispatch({ type: "Clear_Filters" });
+  };
 
   // updateValueFilter Search
   const updateValueFilter = (e) => {
@@ -42,6 +47,7 @@ export const FilterContextProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: "Filter_Products" });
     dispatch({ type: "Sorting_Product" });
+    // console.log(initialState.filter);
   }, [products, state.Sorting_value, state.filter]);
 
   useEffect(() => {
@@ -49,7 +55,9 @@ export const FilterContextProvider = ({ children }) => {
   }, [products]);
 
   return (
-    <FilterContext.Provider value={{ ...state, sorting, updateValueFilter }}>
+    <FilterContext.Provider
+      value={{ ...state, sorting, updateValueFilter, ClearFun }}
+    >
       {children}
     </FilterContext.Provider>
   );
