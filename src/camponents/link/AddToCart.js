@@ -22,7 +22,7 @@ export default function AddToCart({ product }) {
     <>
       <p className="color_ul d-flex my-3 align-items-center gap-1">
         Color:
-        {colors.map((CurrentColor, i) => (
+        {colors.map((CurrentColor, i) => {
           <button
             key={i}
             className={
@@ -34,8 +34,8 @@ export default function AddToCart({ product }) {
             onClick={() => SetColor(CurrentColor)}
           >
             {color === CurrentColor ? <BsCheck className="text-white" /> : ""}
-          </button>
-        ))}
+          </button>;
+        })}
       </p>
       {/* add to cart  */}
       {stock > 0 ? (

@@ -18,6 +18,7 @@ const initialState = {
   total_item: "",
   total_amount: "",
   Shipping_fees: 5000,
+  // console.log();
 };
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
