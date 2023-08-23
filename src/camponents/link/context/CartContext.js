@@ -13,8 +13,8 @@ const getLocalCart = () => {
 };
 console.log(getLocalCart());
 const initialState = {
-  // cart: [],
-  cart: getLocalCart(),
+  cart: [],
+  // cart: getLocalCart(),
   total_item: "",
   total_amount: "",
   Shipping_fees: 5000,
