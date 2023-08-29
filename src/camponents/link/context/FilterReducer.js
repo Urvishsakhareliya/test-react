@@ -22,6 +22,7 @@ const FilterReducer = (state, action) => {
       let NewSortData;
       const { filter_Product, Sorting_value } = state;
       let tempSortData = [...filter_Product];
+      console.log(tempSortData);
       const SortingProducts = (a, b) => {
         // 1 Example with if Condition
         // if (Sorting_value === "lowest") {

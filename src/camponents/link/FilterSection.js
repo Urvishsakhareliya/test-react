@@ -28,6 +28,7 @@ export default function FilterSection() {
   };
   const getUniqueData = (data, Property) => {
     let newVal = data.map((curEle) => {
+      // console.log(curEle[Property]);
       return curEle[Property];
     });
 

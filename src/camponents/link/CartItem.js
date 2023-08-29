@@ -12,7 +12,6 @@ function CartItem({ id, name, color, amount, image, price, max }) {
       maximumSignificantDigits: 2,
     }).format(price / 100);
   };
-
   return (
     <li className="addcart_box" key={id + color}>
       <div className="imges_box">
